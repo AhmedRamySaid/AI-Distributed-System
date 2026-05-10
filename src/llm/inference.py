@@ -18,7 +18,7 @@ import sys, os
 
 # ── Config ────────────────────────────────────────────────────────────────────
 OLLAMA_URL   = "http://localhost:11434/api/generate"
-MODEL_NAME   = "llama3.2:1b"
+MODEL_NAME = "qwen2.5:0.5b"
 TEMPERATURE  = 0.3        # low = more focused / factual
 MAX_TOKENS   = 512
 TIMEOUT_SEC  = 120        # seconds before giving up on a request
@@ -60,7 +60,7 @@ def run_llm(query: str, context: str) -> str:
         "stream": False,               # wait for full response
         "options": {
             "temperature": TEMPERATURE,
-            "num_predict": MAX_TOKENS,
+            "num_predict": 128,
         },
     }).encode("utf-8")
 
