@@ -11,16 +11,15 @@ The function retrieve_context(query) is what gpu_worker.py calls:
 import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from sklearn.feature_extraction.text import TfidfVectorizer
+from common.knowledge_base import DOCUMENTS
+from src.rag.ingest import DB_PATH
 
-import sys, os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # → src/
-from knowledge_base import DOCUMENTS
 
 # ── Config ────────────────────────────────────────────────────────────────────
 COLLECTION_NAME = "study_techniques"
-DB_PATH = "./chroma_db"          # same path used in ingest.py
-TOP_K = 3                        # number of passages to retrieve
+# same path used in ingest.py
 
+TOP_K = 3 # number of passages to retrieve
 
 # ── Embedding function (must match ingest.py exactly) ─────────────────────────
 class TFIDFEmbeddingFunction(EmbeddingFunction):

@@ -12,11 +12,21 @@ Usage:
 import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-from knowledge_base import DOCUMENTS
+from common.knowledge_base import DOCUMENTS
+
+# ── Path ──────────────────────────────────────────────────────────────────────
+import os
+
+# Get the absolute path to the directory containing retriever.py
+current_file_path = os.path.abspath(__file__)
+
+# Go up two levels (rag/ -> src/ -> root) to get to the project root
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(current_file_path)))
+
+# Combine root with the database folder name
+DB_PATH = os.path.join(project_root, "common/chroma_db")
 
 COLLECTION_NAME = "study_techniques"
-DB_PATH = "./chroma_db"
 
 
 class TFIDFEmbeddingFunction(EmbeddingFunction):

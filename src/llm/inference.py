@@ -14,7 +14,8 @@ import urllib.request
 import urllib.error
 import json
 import time
-import sys, os
+
+
 
 # ── Config ────────────────────────────────────────────────────────────────────
 OLLAMA_URL   = "http://localhost:11434/api/generate"
@@ -100,14 +101,10 @@ def run_llm_timed(query: str, context: str) -> tuple[str, float]:
 # ── Quick test ─────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     # Import retriever only for the self-test
-   
-    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    from rag.retriever import retrieve_context
+    from src.rag.retriever import retrieve_context
 
     test_queries = [
-        "How can I remember things better for my exam?",
-        "I keep losing focus while studying. Any tips?",
-        "What is the Feynman technique?",
+        "What year did ww2 start"
     ]
 
     for q in test_queries:
