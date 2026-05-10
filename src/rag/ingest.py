@@ -13,6 +13,10 @@ import chromadb
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from knowledge_base import DOCUMENTS
 
 COLLECTION_NAME = "study_techniques"
