@@ -15,8 +15,6 @@ import urllib.error
 import json
 import time
 
-
-
 # ── Config ────────────────────────────────────────────────────────────────────
 OLLAMA_URL   = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5:0.5b"
@@ -104,7 +102,7 @@ if __name__ == "__main__":
     from src.rag.retriever import retrieve_context
 
     test_queries = [
-        "What year did ww2 start"
+        "How can I remember things better?"
     ]
 
     for q in test_queries:
